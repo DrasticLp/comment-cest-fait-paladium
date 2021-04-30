@@ -1,0 +1,9 @@
+{
+    "parent": "block/orientable",
+    "textures": {
+        "top": "palaclone:blocks/cobblebreaker_top",
+        "front": "palaclone:blocks/cobblebreaker_front",
+        "side": "palaclone:blocks/cobblebreaker_front",
+        "bottom": "palaclone:blocks/cobblebreaker_side"
+    }
+}
