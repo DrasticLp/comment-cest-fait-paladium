@@ -1,5 +1,6 @@
 package com.drastic.palaclone.util.handlers;
 
+import com.drastic.palaclone.Main;
 import com.drastic.palaclone.init.BlockInit;
 import com.drastic.palaclone.init.ItemInit;
 import com.drastic.palaclone.util.interfaces.IHasModel;
@@ -10,6 +11,7 @@ import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 
 @EventBusSubscriber
 public class RegistryHandler
@@ -24,6 +26,7 @@ public class RegistryHandler
     public static void onBlockRegister(RegistryEvent.Register<Block> event)
     {
         event.getRegistry().registerAll(BlockInit.BLOCKS.toArray(new Block[0]));
+        TileEntityHandler.registerTileEntities();
     }  
     
     @SubscribeEvent
@@ -53,6 +56,6 @@ public class RegistryHandler
     
     public static void initRegistries()
     {
-        
+        NetworkRegistry.INSTANCE.registerGuiHandler(Main.instance, new GuiHandler());
     }
 }
